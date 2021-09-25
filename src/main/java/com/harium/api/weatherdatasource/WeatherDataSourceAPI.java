@@ -47,23 +47,35 @@ public class WeatherDataSourceAPI {
     }
 
     private static String getWindDirection(Document document) {
-        String wind = document.select("p").get(1).text();
-        return wind.split(": ")[1];
+        String data = document.select("p").get(2).text();
+        if (!data.contains(": ")) {
+            return "";
+        }
+        return data.split(": ")[1];
     }
 
     private static String getWindSpeed(Document document) {
-        String wind = document.select("p").get(3).text();
-        return wind.split(": ")[1];
+        String data = document.select("p").get(3).text();
+        if (!data.contains(": ")) {
+            return "";
+        }
+        return data.split(": ")[1];
     }
 
     private static String getSunset(Document document) {
-        String wind = document.select("p").get(5).text();
-        return wind.split(": ")[1];
+        String data = document.select("p").get(5).text();
+        if (!data.contains(": ")) {
+            return "";
+        }
+        return data.split(": ")[1];
     }
 
     private static String getSunrise(Document document) {
-        String wind = document.select("p").get(4).text();
-        return wind.split(": ")[1];
+        String data = document.select("p").get(4).text();
+        if (!data.contains(": ")) {
+            return "";
+        }
+        return data.split(": ")[1];
     }
 
 }
